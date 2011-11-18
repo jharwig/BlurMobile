@@ -280,7 +280,6 @@
                                                        displayName:nil
                                                        sessionMode:GKSessionModeServer];
         
-        currentSession.available = YES;
         Log(@"Starting Server");
         
     }else {
@@ -288,12 +287,13 @@
                                                       displayName:nil 
                                                       sessionMode:GKSessionModeClient];
         
-        currentSession.available = YES;
+        
         Log(@"Starting Client");
     }
     currentSession.delegate = self;
     currentSession.disconnectTimeout = 60;
     [currentSession setDataReceiveHandler:self withContext:nil];
+    currentSession.available = YES;
     [startButton setHidden:YES];
     [stopButton setHidden:NO];   
     
@@ -343,6 +343,29 @@
     [deviceName setText:[[UIDevice currentDevice] name]];
     [systemName setText:[[UIDevice currentDevice] systemName]];
     [systemVersion setText:[[UIDevice currentDevice] systemVersion]];
+    
+    
+    if (!IS_SERVER) {
+        for (UIView *v in self.view.subviews) {
+            if (v == startButton)
+                break;
+            
+            [v setHidden:YES];
+        }
+        
+        for (UIView *v in self.view.subviews) {
+            if ([self.view.subviews indexOfObject:v] < [self.view.subviews indexOfObject:startButton])
+                continue;
+            
+            CGRect f = v.frame;
+            f.origin.y -= 89;
+            if (v == logView) {
+                f.size.height += 89;
+            }
+            v.frame = f;
+        }
+        
+    }
     
     [startButton setHidden:NO];
     [stopButton setHidden:YES];
