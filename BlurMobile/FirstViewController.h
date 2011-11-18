@@ -22,8 +22,10 @@
     IBOutlet UILabel *systemName;
     IBOutlet UILabel *systemVersion;
     
+    NSTimer *pingTimer;
 }
     
+@property (nonatomic, retain) NSTimer *pingTimer;
 @property(nonatomic, retain) GKSession *currentSession;
 @property(nonatomic, retain) NSMutableArray *currentEmployees;
 @property(nonatomic, retain) UITextField *queryString;

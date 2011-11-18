@@ -13,7 +13,7 @@
 @synthesize logView;
 
 @synthesize currentSession, currentEmployees, queryString, startButton, stopButton;
-@synthesize deviceName, deviceModel, systemName, systemVersion;
+@synthesize deviceName, deviceModel, systemName, systemVersion, pingTimer;
 
 #pragma mark -- UITextFieldDelegate Methods
 // Delegate method for UITextField when return is pressed
@@ -49,6 +49,8 @@
      **/
     [session acceptConnectionFromPeer:peerID error:nil];
     
+    
+    
 }
 
 -(void)session:(GKSession *) session
@@ -81,7 +83,10 @@
             break;
             
         case GKPeerStateConnected:
-            Log(@"Connected");
+            if (IS_SERVER) {
+                Log(@"Connected clients: %i", [[currentSession peersWithConnectionState:GKPeerStateConnected] count]);
+            } else Log(@"Connected");
+            
             break;
             
         case GKPeerStateDisconnected:
@@ -91,20 +96,68 @@
             [startButton setHidden:NO];
             [stopButton setHidden:YES];
             break;
+        default:
+            Log(@"unknown state: %i", state);
     }
     
 }
 
 #pragma mark -- Data Transfer
 
--(void) shardEmployeesToDevices:(NSData *) data {
-    
-    if (currentSession)
-        [self.currentSession sendDataToAllPeers:data
-                                   withDataMode:GKSendDataReliable 
-                                          error:nil];
-    
-    
+-(void) shardEmployeesToDevices {
+
+    if (currentSession) {
+        NSArray *peers = [currentSession peersWithConnectionState:GKPeerStateConnected];
+        
+        if ([peers count] == 0) {
+            return;
+        }
+        
+        int employeesPerDevice = (int)[currentEmployees count] / [peers count];
+        Log(@"Distributing %i employees per device", employeesPerDevice);
+                
+        int i = 0;
+        NSMutableArray *leftovers;
+        for (id peer in peers) {
+            NSError *error;
+            NSRange range = NSMakeRange(i, employeesPerDevice);
+            NSArray *subset = [currentEmployees objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:range]];
+            NSData *d = [NSKeyedArchiver archivedDataWithRootObject:[NSDictionary dictionaryWithObject:subset forKey:@"replace"]];
+            if (![self.currentSession sendData:d toPeers:[NSArray arrayWithObject:peer] withDataMode:GKSendDataReliable error:&error]) {
+                Log(@"Error sending records to %@. %@", peer, error);
+                [leftovers addObjectsFromArray:subset];
+            }
+            i += employeesPerDevice;
+        }
+        
+        // add remainder using round robin
+        int remainder = [currentEmployees count] % [peers count];
+        if (remainder > 0) {
+            NSMutableArray *remainderObjects = [[[currentEmployees objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange([currentEmployees count] - remainder, remainder)]] arrayByAddingObjectsFromArray:leftovers] mutableCopy];
+            
+            i = 0;
+            for (Employee *e in remainderObjects) {
+                id peer = [peers objectAtIndex:i];
+                NSData *d = [NSKeyedArchiver archivedDataWithRootObject:[NSDictionary dictionaryWithObject:[NSArray arrayWithObject:e] forKey:@"append"]];
+                int firstPeerTried = i;
+                while (![self.currentSession sendData:d toPeers:[NSArray arrayWithObject:peer] withDataMode:GKSendDataReliable error:nil]) {
+                    i++;
+                    if (i > [peers count] - 1) {
+                        i = 0;
+                    }   
+                    if (i == firstPeerTried) {
+                        Log(@"Not enough evailable peers");
+                        break;
+                    }
+                    peer = [peers objectAtIndex:i];
+                }
+                i++;
+                if (i > [peers count] - 1) {
+                    i = 0;
+                }
+            }
+        }
+    }
 }
 
 -(void) mySendDataToPeers:(NSData *) data {
@@ -133,14 +186,25 @@
     
     @try {
         
-        NSArray *e = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        NSDictionary *e = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if ([[e objectForKey:@"ping"] isEqualToString:@"ping"]) {
+            //Log(@"ping");
+            return;
+        }
+        NSArray *replace = [e objectForKey:@"replace"];
+        NSArray *append = [e objectForKey:@"append"];
         
+        if (replace) {
+            [(id)[UIApplication sharedApplication].delegate setCurrentEmployees:[[replace mutableCopy] autorelease]];
+        } else if (append) {
+            NSMutableArray *current = [(id)[UIApplication sharedApplication].delegate currentEmployees];
+            [current addObjectsFromArray:append];
+            [(id)[UIApplication sharedApplication].delegate setCurrentEmployees:[[current mutableCopy] autorelease]];
+        }
         
-        [(id)[UIApplication sharedApplication].delegate setCurrentEmployees:[e mutableCopy]];
-                
         success = TRUE;
         
-        Log(@"Received %d employees", [e count]);
+        Log(@"Received %d new employees, %d appended", [replace count] , [append count]);
     }
     @catch (NSException *exception) {
         Log(@"main: Caught %@: %@", [exception name], [exception reason]);
@@ -155,6 +219,16 @@
         Log(@"Received search: %@", str);
     }
     
+}
+
+- (void)ping:(NSTimer *)t {
+    if ([[self.currentSession peersWithConnectionState:GKPeerStateConnected] count] > 0) {
+        NSDictionary *dic = [NSDictionary dictionaryWithObject:@"ping" forKey:@"ping"];
+        NSData *d = [NSKeyedArchiver archivedDataWithRootObject:dic];
+        if (![self.currentSession sendDataToAllPeers:d withDataMode:GKSendDataReliable error:nil]) {
+            Log(@"unable to ping");
+        }
+    }
 }
 
 #pragma mark -- Buttons
@@ -176,8 +250,8 @@
     Log(@"There are %d employees to shard", [currentEmployees count]);
     
     
-    NSData *employeeData = [NSKeyedArchiver archivedDataWithRootObject:currentEmployees];
-    [self shardEmployeesToDevices:employeeData];
+   
+    [self shardEmployeesToDevices];
     
     
 }
@@ -199,18 +273,26 @@
         self.currentSession= [[GKSession alloc] initWithSessionID:@"BT" 
                                                       displayName:nil 
                                                       sessionMode:GKSessionModeClient];
+        
         currentSession.available = YES;
         Log(@"Starting Client");
     }
     currentSession.delegate = self;
-    currentSession.disconnectTimeout = 20;
+    currentSession.disconnectTimeout = 60;
     [currentSession setDataReceiveHandler:self withContext:nil];
     [startButton setHidden:YES];
-    [stopButton setHidden:NO];       
+    [stopButton setHidden:NO];   
+    
+    if (IS_SERVER) {
+        [self.pingTimer invalidate];
+        self.pingTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(ping:) userInfo:nil repeats:YES];
+    }
 }
 
 -(IBAction) btnStop:(id) sender {
     
+    [self.pingTimer invalidate];
+    self.pingTimer = nil;
     [self.currentSession disconnectFromAllPeers];
     [self.currentSession release];
     currentSession = nil;
@@ -222,6 +304,7 @@
 #pragma mark - Memory Management
 - (void)dealloc
 {
+    [pingTimer release];
     [queryString release];
     [currentSession release];
     [logView release];

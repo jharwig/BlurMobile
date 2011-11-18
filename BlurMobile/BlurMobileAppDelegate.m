@@ -35,12 +35,14 @@
          EmployeeFactory *ef = [EmployeeFactory instance];
         self.currentEmployees = [ef loadAllEmployees];
         [ef printAll];
-         
      }
         
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
+    [self application:application didFinishLaunchingWithOptions:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
