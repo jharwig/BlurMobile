@@ -32,7 +32,7 @@
     
    // If the device is the iPad, load the master list of employees
     
-    if ([[[UIDevice currentDevice] name] hasPrefix:@"Chris D"]) {
+    if ([[[UIDevice currentDevice] name] hasPrefix:@"Chris D"] && [[[UIDevice currentDevice] model] hasPrefix:@"iPad"]) {
         NSLog(@"Loading employees");
          EmployeeFactory *ef = [EmployeeFactory instance];
         currentEmployees = [ef loadAllEmployees];

@@ -140,6 +140,13 @@
         
         success = TRUE;
         
+    NSString *str = [[NSString alloc] initWithFormat:@"Received %d employees", [e count]];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Data Received" message:str delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [str release];
+        [alert release];
+        
     }
     @catch (NSException *exception) {
         NSLog(@"main: Caught %@: %@", [exception name], [exception reason]);
@@ -189,7 +196,7 @@
     
     // Determine if the device is eligible to be the server. If not, start as client
     
-    if ([[[UIDevice currentDevice] name] hasPrefix:@"Chris D"]) {
+   if ([[[UIDevice currentDevice] name] hasPrefix:@"Chris D"] && [[[UIDevice currentDevice] model] hasPrefix:@"iPad"]) {
         
         self.currentSession = [[GKSession alloc] initWithSessionID:@"BT" 
                                                        displayName:nil
