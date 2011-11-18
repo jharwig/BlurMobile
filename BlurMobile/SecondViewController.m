@@ -33,7 +33,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"employeesCell";
-    EmployeeCell *cell = [tv dequeueReusableCellWithIdentifier:CellIdentifier];
+    EmployeeCell *cell = (EmployeeCell *)[tv dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
         UIViewController *vc = [[[UIViewController alloc] initWithNibName:@"EmployeeCell" bundle:nil] autorelease];
