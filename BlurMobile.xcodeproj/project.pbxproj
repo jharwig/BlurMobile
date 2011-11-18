@@ -1,0 +1,351 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		219D62EF1475F31C0035E4AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219D62EE1475F31C0035E4AC /* UIKit.framework */; };
+		219D62F11475F31C0035E4AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219D62F01475F31C0035E4AC /* Foundation.framework */; };
+		219D62F31475F31C0035E4AC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219D62F21475F31C0035E4AC /* CoreGraphics.framework */; };
+		219D62F91475F31C0035E4AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 219D62F71475F31C0035E4AC /* InfoPlist.strings */; };
+		219D62FC1475F31C0035E4AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 219D62FB1475F31C0035E4AC /* main.m */; };
+		219D62FF1475F31C0035E4AC /* BlurMobileAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 219D62FE1475F31C0035E4AC /* BlurMobileAppDelegate.m */; };
+		219D63021475F31C0035E4AC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219D63001475F31C0035E4AC /* MainWindow.xib */; };
+		219D63051475F31C0035E4AC /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219D63041475F31C0035E4AC /* FirstViewController.m */; };
+		219D63081475F31C0035E4AC /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219D63071475F31C0035E4AC /* SecondViewController.m */; };
+		219D630E1475F31C0035E4AC /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219D630C1475F31C0035E4AC /* SecondView.xib */; };
+		219D631F1475F84C0035E4AC /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 219D631E1475F84C0035E4AC /* Employee.m */; };
+		219D63231476004F0035E4AC /* cogwheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 219D63201476004E0035E4AC /* cogwheel.png */; };
+		219D63251476004F0035E4AC /* 72_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 219D63221476004E0035E4AC /* 72_app_icon.png */; };
+		219D632A147601640035E4AC /* 57_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 219D6329147601640035E4AC /* 57_app_icon.png */; };
+		219D632C147602010035E4AC /* glyphicons_024_parents.png in Resources */ = {isa = PBXBuildFile; fileRef = 219D632B147602000035E4AC /* glyphicons_024_parents.png */; };
+		219D632E1476035D0035E4AC /* 114_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 219D632D1476035D0035E4AC /* 114_app_icon.png */; };
+		219D6331147603A00035E4AC /* EmployeeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 219D632F147603A00035E4AC /* EmployeeFactory.m */; };
+		219D63331476148C0035E4AC /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219D63321476148C0035E4AC /* FirstView.xib */; };
+		219D633D14761BA50035E4AC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219D633C14761BA50035E4AC /* GameKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		219D62EA1475F31C0035E4AC /* BlurMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlurMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		219D62EE1475F31C0035E4AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		219D62F01475F31C0035E4AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		219D62F21475F31C0035E4AC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		219D62F61475F31C0035E4AC /* BlurMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BlurMobile-Info.plist"; sourceTree = "<group>"; };
+		219D62F81475F31C0035E4AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		219D62FA1475F31C0035E4AC /* BlurMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlurMobile-Prefix.pch"; sourceTree = "<group>"; };
+		219D62FB1475F31C0035E4AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		219D62FD1475F31C0035E4AC /* BlurMobileAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlurMobileAppDelegate.h; sourceTree = "<group>"; };
+		219D62FE1475F31C0035E4AC /* BlurMobileAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlurMobileAppDelegate.m; sourceTree = "<group>"; };
+		219D63011475F31C0035E4AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		219D63031475F31C0035E4AC /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		219D63041475F31C0035E4AC /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		219D63061475F31C0035E4AC /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		219D63071475F31C0035E4AC /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		219D630D1475F31C0035E4AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
+		219D631D1475F83C0035E4AC /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		219D631E1475F84C0035E4AC /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		219D63201476004E0035E4AC /* cogwheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cogwheel.png; sourceTree = "<group>"; };
+		219D63221476004E0035E4AC /* 72_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72_app_icon.png; sourceTree = "<group>"; };
+		219D6329147601640035E4AC /* 57_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 57_app_icon.png; path = ../57_app_icon.png; sourceTree = "<group>"; };
+		219D632B147602000035E4AC /* glyphicons_024_parents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_024_parents.png; sourceTree = "<group>"; };
+		219D632D1476035D0035E4AC /* 114_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114_app_icon.png; path = ../114_app_icon.png; sourceTree = "<group>"; };
+		219D632F147603A00035E4AC /* EmployeeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeFactory.m; sourceTree = "<group>"; };
+		219D6330147603A00035E4AC /* EmployeeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeFactory.h; sourceTree = "<group>"; };
+		219D63321476148C0035E4AC /* FirstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstView.xib; sourceTree = "<group>"; };
+		219D633C14761BA50035E4AC /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		219D62E71475F31C0035E4AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219D633D14761BA50035E4AC /* GameKit.framework in Frameworks */,
+				219D62EF1475F31C0035E4AC /* UIKit.framework in Frameworks */,
+				219D62F11475F31C0035E4AC /* Foundation.framework in Frameworks */,
+				219D62F31475F31C0035E4AC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		219D62DF1475F31B0035E4AC = {
+			isa = PBXGroup;
+			children = (
+				219D633C14761BA50035E4AC /* GameKit.framework */,
+				219D62F41475F31C0035E4AC /* BlurMobile */,
+				219D62ED1475F31C0035E4AC /* Frameworks */,
+				219D62EB1475F31C0035E4AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		219D62EB1475F31C0035E4AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				219D62EA1475F31C0035E4AC /* BlurMobile.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		219D62ED1475F31C0035E4AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				219D62EE1475F31C0035E4AC /* UIKit.framework */,
+				219D62F01475F31C0035E4AC /* Foundation.framework */,
+				219D62F21475F31C0035E4AC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		219D62F41475F31C0035E4AC /* BlurMobile */ = {
+			isa = PBXGroup;
+			children = (
+				219D6326147600750035E4AC /* Images */,
+				219D631C1475F81D0035E4AC /* Employee */,
+				219D62FD1475F31C0035E4AC /* BlurMobileAppDelegate.h */,
+				219D62FE1475F31C0035E4AC /* BlurMobileAppDelegate.m */,
+				219D63031475F31C0035E4AC /* FirstViewController.h */,
+				219D63041475F31C0035E4AC /* FirstViewController.m */,
+				219D63061475F31C0035E4AC /* SecondViewController.h */,
+				219D63071475F31C0035E4AC /* SecondViewController.m */,
+				219D63001475F31C0035E4AC /* MainWindow.xib */,
+				219D63321476148C0035E4AC /* FirstView.xib */,
+				219D630C1475F31C0035E4AC /* SecondView.xib */,
+				219D62F51475F31C0035E4AC /* Supporting Files */,
+			);
+			path = BlurMobile;
+			sourceTree = "<group>";
+		};
+		219D62F51475F31C0035E4AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				219D62F61475F31C0035E4AC /* BlurMobile-Info.plist */,
+				219D62F71475F31C0035E4AC /* InfoPlist.strings */,
+				219D62FA1475F31C0035E4AC /* BlurMobile-Prefix.pch */,
+				219D62FB1475F31C0035E4AC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		219D631C1475F81D0035E4AC /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				219D6330147603A00035E4AC /* EmployeeFactory.h */,
+				219D632F147603A00035E4AC /* EmployeeFactory.m */,
+				219D631D1475F83C0035E4AC /* Employee.h */,
+				219D631E1475F84C0035E4AC /* Employee.m */,
+			);
+			name = Employee;
+			sourceTree = "<group>";
+		};
+		219D6326147600750035E4AC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				219D632D1476035D0035E4AC /* 114_app_icon.png */,
+				219D632B147602000035E4AC /* glyphicons_024_parents.png */,
+				219D6329147601640035E4AC /* 57_app_icon.png */,
+				219D63221476004E0035E4AC /* 72_app_icon.png */,
+				219D63201476004E0035E4AC /* cogwheel.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		219D62E91475F31C0035E4AC /* BlurMobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 219D63111475F31C0035E4AC /* Build configuration list for PBXNativeTarget "BlurMobile" */;
+			buildPhases = (
+				219D62E61475F31C0035E4AC /* Sources */,
+				219D62E71475F31C0035E4AC /* Frameworks */,
+				219D62E81475F31C0035E4AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlurMobile;
+			productName = BlurMobile;
+			productReference = 219D62EA1475F31C0035E4AC /* BlurMobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		219D62E11475F31B0035E4AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Near Infinity Corporation";
+			};
+			buildConfigurationList = 219D62E41475F31B0035E4AC /* Build configuration list for PBXProject "BlurMobile" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 219D62DF1475F31B0035E4AC;
+			productRefGroup = 219D62EB1475F31C0035E4AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				219D62E91475F31C0035E4AC /* BlurMobile */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		219D62E81475F31C0035E4AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219D62F91475F31C0035E4AC /* InfoPlist.strings in Resources */,
+				219D63021475F31C0035E4AC /* MainWindow.xib in Resources */,
+				219D630E1475F31C0035E4AC /* SecondView.xib in Resources */,
+				219D63231476004F0035E4AC /* cogwheel.png in Resources */,
+				219D63251476004F0035E4AC /* 72_app_icon.png in Resources */,
+				219D632A147601640035E4AC /* 57_app_icon.png in Resources */,
+				219D632C147602010035E4AC /* glyphicons_024_parents.png in Resources */,
+				219D632E1476035D0035E4AC /* 114_app_icon.png in Resources */,
+				219D63331476148C0035E4AC /* FirstView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		219D62E61475F31C0035E4AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219D62FC1475F31C0035E4AC /* main.m in Sources */,
+				219D62FF1475F31C0035E4AC /* BlurMobileAppDelegate.m in Sources */,
+				219D63051475F31C0035E4AC /* FirstViewController.m in Sources */,
+				219D63081475F31C0035E4AC /* SecondViewController.m in Sources */,
+				219D631F1475F84C0035E4AC /* Employee.m in Sources */,
+				219D6331147603A00035E4AC /* EmployeeFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		219D62F71475F31C0035E4AC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				219D62F81475F31C0035E4AC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		219D63001475F31C0035E4AC /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				219D63011475F31C0035E4AC /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		219D630C1475F31C0035E4AC /* SecondView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				219D630D1475F31C0035E4AC /* en */,
+			);
+			name = SecondView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		219D630F1475F31C0035E4AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		219D63101475F31C0035E4AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		219D63121475F31C0035E4AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BlurMobile/BlurMobile-Prefix.pch";
+				INFOPLIST_FILE = "BlurMobile/BlurMobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		219D63131475F31C0035E4AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BlurMobile/BlurMobile-Prefix.pch";
+				INFOPLIST_FILE = "BlurMobile/BlurMobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		219D62E41475F31B0035E4AC /* Build configuration list for PBXProject "BlurMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				219D630F1475F31C0035E4AC /* Debug */,
+				219D63101475F31C0035E4AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		219D63111475F31C0035E4AC /* Build configuration list for PBXNativeTarget "BlurMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				219D63121475F31C0035E4AC /* Debug */,
+				219D63131475F31C0035E4AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 219D62E11475F31B0035E4AC /* Project object */;
+}
