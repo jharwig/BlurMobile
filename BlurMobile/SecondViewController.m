@@ -18,6 +18,15 @@
     [super viewDidLoad];
 }
 
+- (void)setCurrentEmployees:(NSMutableArray *)c {
+    if (currentEmployees != c) {
+        [currentEmployees release];
+        currentEmployees = [c retain];
+        
+        [self.tableView reloadData];
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [currentEmployees count];
 }
