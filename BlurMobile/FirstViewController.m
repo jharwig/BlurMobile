@@ -220,12 +220,13 @@
         
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"firstName like *%@", str];
+        Log(@"There are %d total employees on this device", [currentEmployees count]);
         
         NSArray *results = [currentEmployees filteredArrayUsingPredicate:predicate];
       
-        NSLog(@"results = %@ count is %d", results, [results count]);
+        Log(@"Found %d matching employees on this device", [results count]);
         
-        NSString *resultMessage = [NSString stringWithFormat:@"results = %@ count is %d",[results count]];
+        NSString *resultMessage = [NSString stringWithFormat:@"Found %d employees",[results count]];
                                    
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Found Matches" message:resultMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
