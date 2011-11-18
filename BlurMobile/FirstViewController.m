@@ -214,7 +214,7 @@
         Log(@"Received %d new employees, %d appended", [replace count] , [append count]);
     }
     @catch (NSException *exception) {
-        Log(@"main: Caught %@: %@", [exception name], [exception reason]);
+        //Log(@"main: Caught %@: %@", [exception name], [exception reason]);
     }
     
     if(!success) {
