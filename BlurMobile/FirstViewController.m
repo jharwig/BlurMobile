@@ -112,7 +112,7 @@
         if ([peers count] == 0) {
             return;
         }
-        
+        @try {
         int employeesPerDevice = (int)[currentEmployees count] / [peers count];
         Log(@"Distributing %i employees per device", employeesPerDevice);
                 
@@ -157,6 +157,12 @@
                 }
             }
         }
+            
+        }
+        @catch (NSException *exception) {
+            Log(@"e = %@", exception);
+        }
+        
     }
 }
 
@@ -214,13 +220,12 @@
         
         // Convert NSData to NSString
         NSString *str;
-        str = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        str = [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] autorelease];
         
         Log(@"Received search: %@", str);
         
-        
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"firstName like *%@", str];
-        Log(@"There are %d total employees on this device", [currentEmployees count]);
+        NSString *wildcarded = [NSString stringWithFormat:@"*%@*", str];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"firstName like[c] %@", wildcarded];
         
         NSArray *results = [currentEmployees filteredArrayUsingPredicate:predicate];
       
@@ -280,27 +285,29 @@
         self.currentSession = [[GKSession alloc] initWithSessionID:@"BT" 
                                                        displayName:nil
                                                        sessionMode:GKSessionModeServer];
-        
+        currentSession.available = YES;
         Log(@"Starting Server");
         
     }else {
         self.currentSession= [[GKSession alloc] initWithSessionID:@"BT" 
                                                       displayName:nil 
                                                       sessionMode:GKSessionModeClient];
-        
+        currentSession.available = YES;
         
         Log(@"Starting Client");
     }
     currentSession.delegate = self;
     currentSession.disconnectTimeout = 60;
     [currentSession setDataReceiveHandler:self withContext:nil];
-    currentSession.available = YES;
+    
     [startButton setHidden:YES];
-    [stopButton setHidden:NO];   
+    [stopButton setHidden:NO];      
     
     if (IS_SERVER) {
         [self.pingTimer invalidate];
         self.pingTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(ping:) userInfo:nil repeats:YES];
+    } else {
+        //[currentSession performSelector:@selector(setAvailable:) withObject:[NSNumber numberWithBool:YES] afterDelay:5.0];
     }
 }
 
