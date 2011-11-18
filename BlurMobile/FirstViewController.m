@@ -217,6 +217,20 @@
         str = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
         
         Log(@"Received search: %@", str);
+        
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"firstName like %@", str];
+        
+        NSArray *results = [currentEmployees filteredArrayUsingPredicate:predicate];
+      
+        NSLog(@"results = %@ count is %d", results, [results count]);
+        
+        NSString *resultMessage = [NSString stringWithFormat:@"results = %@ count is %d",[results count]];
+                                   
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Found Matches" message:resultMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        
     }
     
 }
