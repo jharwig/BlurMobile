@@ -12,6 +12,8 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
+#define IS_SERVER ([[[UIDevice currentDevice] name] hasPrefix:@"Chris D"] && [[[UIDevice currentDevice] name] hasSuffix:@"iPad2"])
+
 #define LOGGER @"LOGGER_NOTIFICATION"
 #define Log(fmt, ...) [[NSNotificationCenter defaultCenter] postNotificationName:LOGGER object:nil userInfo:[NSDictionary dictionaryWithObject:([NSString stringWithFormat:fmt, ## __VA_ARGS__]) forKey:@"message"]]
 #endif

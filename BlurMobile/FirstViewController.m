@@ -12,8 +12,6 @@
 @implementation FirstViewController
 @synthesize logView;
 
-#define SERVERNAME @"Chris D'Agostino's iPad2"
-
 @synthesize currentSession, currentEmployees, queryString, startButton, stopButton;
 @synthesize deviceName, deviceModel, systemName, systemVersion;
 
@@ -192,7 +190,7 @@
     
     // Determine if the device is eligible to be the server. If not, start as client
     
-    if ([[[UIDevice currentDevice] name] hasPrefix:@"Chris D"]) {
+    if (IS_SERVER) {
         
         self.currentSession = [[GKSession alloc] initWithSessionID:@"BT" 
                                                        displayName:nil
