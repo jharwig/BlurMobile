@@ -11,6 +11,7 @@
 
 @implementation BlurMobileAppDelegate
 
+#define SERVERNAME @"Chris D'Agostino's iPad2"
 
 @synthesize window=_window;
 
@@ -34,9 +35,13 @@
     NSLog(@"Device SystemVersion is %@", [[UIDevice currentDevice] systemVersion]);
     
    // If the device is the iPad, load the master list of employees
-   EmployeeFactory *ef = [EmployeeFactory instance];
-    currentEmployees = [ef loadAllEmployees];
-    [ef printAll];
+    
+    if ([[UIDevice currentDevice] name] == SERVERNAME) {
+         EmployeeFactory *ef = [EmployeeFactory instance];
+        currentEmployees = [ef loadAllEmployees];
+        [ef printAll];
+         
+     }
     
     NSArray *controllers = [self.tabBarController viewControllers];
     for (UIViewController *vc in controllers) {
