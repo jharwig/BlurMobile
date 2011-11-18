@@ -144,6 +144,7 @@
 				<string key="NSReuseIdentifierKey">_NS:384</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="925481550"/>
+				<string key="IBUIReuseIdentifier">employeesCell</string>
 				<real value="68" key="IBUIRowHeight"/>
 			</object>
 		</array>
