@@ -7,36 +7,46 @@
 //
 
 #import "SecondViewController.h"
-
+#import "Employee.h"
+#import "EmployeeCell.h"
 
 @implementation SecondViewController
+@synthesize tableView, currentEmployees;
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    self.tableView.rowHeight = 68;
     [super viewDidLoad];
 }
-*/
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [currentEmployees count];
 }
 
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"employeesCell";
+    EmployeeCell *cell = [tv dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Release any cached data, images, etc. that aren't in use.
+    if (!cell) {
+        UIViewController *vc = [[[UIViewController alloc] initWithNibName:@"EmployeeCell" bundle:nil] autorelease];
+        cell = (EmployeeCell *)vc.view;
+    }
+    
+    Employee *e = [currentEmployees objectAtIndex:indexPath.row];
+    
+    cell.name.text = [NSString stringWithFormat:@"%@ %@", e.firstName, e.lastName];
+    cell.number.text = [NSString stringWithFormat:@"%i", e.employeeNumber];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateStyle = NSDateFormatterMediumStyle;
+    cell.date.text = [df stringFromDate:e.dateOfHire];
+    [df release];
+    
+    return cell;
 }
 
 
 - (void)viewDidUnload
 {
+    [self setTableView:nil];
     [super viewDidUnload];
 
     // Release any retained subviews of the main view.
@@ -46,6 +56,7 @@
 
 - (void)dealloc
 {
+    [tableView release];
     [super dealloc];
 }
 

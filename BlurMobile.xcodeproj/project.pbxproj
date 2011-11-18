@@ -26,6 +26,8 @@
 		219D6331147603A00035E4AC /* EmployeeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 219D632F147603A00035E4AC /* EmployeeFactory.m */; };
 		219D63331476148C0035E4AC /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219D63321476148C0035E4AC /* FirstView.xib */; };
 		219D633D14761BA50035E4AC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219D633C14761BA50035E4AC /* GameKit.framework */; };
+		910A23F91476B37F002BF29B /* EmployeeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 910A23F81476B37F002BF29B /* EmployeeCell.m */; };
+		910A23FB1476B39A002BF29B /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910A23FA1476B39A002BF29B /* EmployeeCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,9 @@
 		219D6330147603A00035E4AC /* EmployeeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeFactory.h; sourceTree = "<group>"; };
 		219D63321476148C0035E4AC /* FirstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstView.xib; sourceTree = "<group>"; };
 		219D633C14761BA50035E4AC /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		910A23F71476B37F002BF29B /* EmployeeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeCell.h; sourceTree = "<group>"; };
+		910A23F81476B37F002BF29B /* EmployeeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeCell.m; sourceTree = "<group>"; };
+		910A23FA1476B39A002BF29B /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +117,9 @@
 				219D63041475F31C0035E4AC /* FirstViewController.m */,
 				219D63061475F31C0035E4AC /* SecondViewController.h */,
 				219D63071475F31C0035E4AC /* SecondViewController.m */,
+				910A23F71476B37F002BF29B /* EmployeeCell.h */,
+				910A23F81476B37F002BF29B /* EmployeeCell.m */,
+				910A23FA1476B39A002BF29B /* EmployeeCell.xib */,
 				219D63001475F31C0035E4AC /* MainWindow.xib */,
 				219D63321476148C0035E4AC /* FirstView.xib */,
 				219D630C1475F31C0035E4AC /* SecondView.xib */,
@@ -213,6 +221,7 @@
 				219D632C147602010035E4AC /* glyphicons_024_parents.png in Resources */,
 				219D632E1476035D0035E4AC /* 114_app_icon.png in Resources */,
 				219D63331476148C0035E4AC /* FirstView.xib in Resources */,
+				910A23FB1476B39A002BF29B /* EmployeeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +238,7 @@
 				219D63081475F31C0035E4AC /* SecondViewController.m in Sources */,
 				219D631F1475F84C0035E4AC /* Employee.m in Sources */,
 				219D6331147603A00035E4AC /* EmployeeFactory.m in Sources */,
+				910A23F91476B37F002BF29B /* EmployeeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

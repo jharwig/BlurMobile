@@ -13,4 +13,7 @@
     
 }
 
+@property (retain, nonatomic) NSMutableArray *currentEmployees;
+@property (retain, nonatomic) IBOutlet UITableView *tableView;
+
 @end
