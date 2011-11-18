@@ -358,7 +358,8 @@
     
     
     if (!IS_SERVER) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"Blur Mobile" ofType:@"m4v"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Blur Mobile" ofType:@"wav"];
+        //NSString *path = [[NSBundle mainBundle] pathForResource:@"BlurMobile" ofType:@"m4v"];
         clickSound = [[SoundEffect soundEffectWithContentsOfFile:path] retain];
         
         for (UIView *v in self.view.subviews) {

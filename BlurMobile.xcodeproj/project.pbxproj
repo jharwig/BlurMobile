@@ -29,8 +29,9 @@
 		910A23F91476B37F002BF29B /* EmployeeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 910A23F81476B37F002BF29B /* EmployeeCell.m */; };
 		910A23FB1476B39A002BF29B /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910A23FA1476B39A002BF29B /* EmployeeCell.xib */; };
 		9155EFDA1476F98A003F87D4 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9155EFD91476F98A003F87D4 /* SoundEffect.m */; };
-		9155EFDC1476FA4A003F87D4 /* Blur Mobile.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 9155EFDB1476FA4A003F87D4 /* Blur Mobile.m4v */; };
+		9155EFDC1476FA4A003F87D4 /* BlurMobile.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 9155EFDB1476FA4A003F87D4 /* BlurMobile.m4v */; };
 		9155EFDE1476FAC5003F87D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9155EFDD1476FAC5003F87D4 /* AudioToolbox.framework */; };
+		9155EFE01476FFC7003F87D4 /* Blur Mobile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9155EFDF1476FFC7003F87D4 /* Blur Mobile.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,8 +67,9 @@
 		910A23FA1476B39A002BF29B /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
 		9155EFD81476F98A003F87D4 /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
 		9155EFD91476F98A003F87D4 /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
-		9155EFDB1476FA4A003F87D4 /* Blur Mobile.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blur Mobile.m4v"; sourceTree = "<group>"; };
+		9155EFDB1476FA4A003F87D4 /* BlurMobile.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlurMobile.m4v; sourceTree = "<group>"; };
 		9155EFDD1476FAC5003F87D4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9155EFDF1476FFC7003F87D4 /* Blur Mobile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Blur Mobile.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +142,8 @@
 		219D62F51475F31C0035E4AC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9155EFDB1476FA4A003F87D4 /* Blur Mobile.m4v */,
+				9155EFDF1476FFC7003F87D4 /* Blur Mobile.wav */,
+				9155EFDB1476FA4A003F87D4 /* BlurMobile.m4v */,
 				9155EFD81476F98A003F87D4 /* SoundEffect.h */,
 				9155EFD91476F98A003F87D4 /* SoundEffect.m */,
 				219D62F61475F31C0035E4AC /* BlurMobile-Info.plist */,
@@ -234,7 +237,8 @@
 				219D632E1476035D0035E4AC /* 114_app_icon.png in Resources */,
 				219D63331476148C0035E4AC /* FirstView.xib in Resources */,
 				910A23FB1476B39A002BF29B /* EmployeeCell.xib in Resources */,
-				9155EFDC1476FA4A003F87D4 /* Blur Mobile.m4v in Resources */,
+				9155EFDC1476FA4A003F87D4 /* BlurMobile.m4v in Resources */,
+				9155EFE01476FFC7003F87D4 /* Blur Mobile.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
