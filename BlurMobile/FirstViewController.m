@@ -219,7 +219,7 @@
         Log(@"Received search: %@", str);
         
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"firstName like %@", str];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"firstName like *%@", str];
         
         NSArray *results = [currentEmployees filteredArrayUsingPredicate:predicate];
       
