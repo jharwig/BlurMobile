@@ -11,14 +11,12 @@
 
 @interface BlurMobileAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
     
-    GKSession *currentSession;
     NSMutableArray *currentEmployees;
 
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
-@property(nonatomic, retain) GKSession *currentSession;
 @property(nonatomic, retain) NSMutableArray *currentEmployees;
 
 @end

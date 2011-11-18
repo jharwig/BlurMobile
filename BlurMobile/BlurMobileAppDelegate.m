@@ -17,12 +17,8 @@
 
 @synthesize tabBarController=_tabBarController;
 
-@synthesize currentSession, currentEmployees;
+@synthesize currentEmployees;
 
--(void)setCurrentSession:(GKSession *)session {
-    currentSession = session;
-    
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -36,7 +32,8 @@
     
    // If the device is the iPad, load the master list of employees
     
-    if ([[UIDevice currentDevice] name] == SERVERNAME) {
+    if ([[[UIDevice currentDevice] name] hasPrefix:@"Chris D"]) {
+        NSLog(@"Loading employees");
          EmployeeFactory *ef = [EmployeeFactory instance];
         currentEmployees = [ef loadAllEmployees];
         [ef printAll];
@@ -99,7 +96,6 @@
     [_window release];
     [_tabBarController release];
     [currentEmployees release];
-    [currentSession release];
     [super dealloc];
 }
 

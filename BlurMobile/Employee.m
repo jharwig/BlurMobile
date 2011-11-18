@@ -42,12 +42,13 @@
 -(id) initWithFirstName:(NSString *)fname 
             andLastName:(NSString *)lname
          andDateOfHire:(NSDate *) hireDate
-        andEmployeeNumber:(int)employeeNumber {
+        andEmployeeNumber:(int)number {
 
     if ((self = [super init])) {
         self.firstName = fname;
         self.lastName = lname;
         self.dateOfHire = hireDate;
+        self.employeeNumber = number;
     }
     return self;
 }
@@ -62,7 +63,7 @@
     
     [dateFormatter release];
     
-    return [NSString stringWithFormat:@"%@, %@ employee number = %i, hired on  %@",lastName, firstName, employeeNumber, date];
+    return [NSString stringWithFormat:@"%@, %@ employee number = %d, hired on  %@",lastName, firstName, employeeNumber, date];
     
 }
 
