@@ -192,7 +192,7 @@
     
     // Determine if the device is eligible to be the server. If not, start as client
     
-    if ([[UIDevice currentDevice] name] == SERVERNAME) {
+    if ([[[UIDevice currentDevice] name] hasPrefix:@"Chris D"]) {
         
         self.currentSession = [[GKSession alloc] initWithSessionID:@"BT" 
                                                        displayName:nil
