@@ -135,21 +135,12 @@
         
         NSArray *e = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         
-        for (Employee *employee in e) {
-            Log(@"Employee = %@", employee);
-        }
         
         [(id)[UIApplication sharedApplication].delegate setCurrentEmployees:[e mutableCopy]];
                 
         success = TRUE;
         
-    NSString *str = [[NSString alloc] initWithFormat:@"Received %d employees", [e count]];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Data Received" message:str delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        [str release];
-        [alert release];
-        
+        Log(@"Received %d employees", [e count]);
     }
     @catch (NSException *exception) {
         Log(@"main: Caught %@: %@", [exception name], [exception reason]);
@@ -161,12 +152,7 @@
         NSString *str;
         str = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Data Received" message:str delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        [str release];
-        [alert release];
-        
-        
+        Log(@"Received search: %@", str);
     }
     
 }
