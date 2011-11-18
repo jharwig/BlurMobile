@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <GameKit/GameKit.h>
 
+@class SoundEffect;
 
 @interface FirstViewController : UIViewController <GKSessionDelegate, UIAlertViewDelegate, UITextFieldDelegate> {
         
@@ -21,6 +22,7 @@
     IBOutlet UILabel *deviceModel;
     IBOutlet UILabel *systemName;
     IBOutlet UILabel *systemVersion;
+    SoundEffect *clickSound;
     
     NSTimer *pingTimer;
 }

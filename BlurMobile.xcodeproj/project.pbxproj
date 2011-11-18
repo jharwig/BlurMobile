@@ -28,6 +28,9 @@
 		219D633D14761BA50035E4AC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219D633C14761BA50035E4AC /* GameKit.framework */; };
 		910A23F91476B37F002BF29B /* EmployeeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 910A23F81476B37F002BF29B /* EmployeeCell.m */; };
 		910A23FB1476B39A002BF29B /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910A23FA1476B39A002BF29B /* EmployeeCell.xib */; };
+		9155EFDA1476F98A003F87D4 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9155EFD91476F98A003F87D4 /* SoundEffect.m */; };
+		9155EFDC1476FA4A003F87D4 /* Blur Mobile.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 9155EFDB1476FA4A003F87D4 /* Blur Mobile.m4v */; };
+		9155EFDE1476FAC5003F87D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9155EFDD1476FAC5003F87D4 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +64,10 @@
 		910A23F71476B37F002BF29B /* EmployeeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeCell.h; sourceTree = "<group>"; };
 		910A23F81476B37F002BF29B /* EmployeeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeCell.m; sourceTree = "<group>"; };
 		910A23FA1476B39A002BF29B /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
+		9155EFD81476F98A003F87D4 /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
+		9155EFD91476F98A003F87D4 /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
+		9155EFDB1476FA4A003F87D4 /* Blur Mobile.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blur Mobile.m4v"; sourceTree = "<group>"; };
+		9155EFDD1476FAC5003F87D4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9155EFDE1476FAC5003F87D4 /* AudioToolbox.framework in Frameworks */,
 				219D633D14761BA50035E4AC /* GameKit.framework in Frameworks */,
 				219D62EF1475F31C0035E4AC /* UIKit.framework in Frameworks */,
 				219D62F11475F31C0035E4AC /* Foundation.framework in Frameworks */,
@@ -98,6 +106,7 @@
 		219D62ED1475F31C0035E4AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9155EFDD1476FAC5003F87D4 /* AudioToolbox.framework */,
 				219D633C14761BA50035E4AC /* GameKit.framework */,
 				219D62EE1475F31C0035E4AC /* UIKit.framework */,
 				219D62F01475F31C0035E4AC /* Foundation.framework */,
@@ -131,6 +140,9 @@
 		219D62F51475F31C0035E4AC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9155EFDB1476FA4A003F87D4 /* Blur Mobile.m4v */,
+				9155EFD81476F98A003F87D4 /* SoundEffect.h */,
+				9155EFD91476F98A003F87D4 /* SoundEffect.m */,
 				219D62F61475F31C0035E4AC /* BlurMobile-Info.plist */,
 				219D62F71475F31C0035E4AC /* InfoPlist.strings */,
 				219D62FA1475F31C0035E4AC /* BlurMobile-Prefix.pch */,
@@ -222,6 +234,7 @@
 				219D632E1476035D0035E4AC /* 114_app_icon.png in Resources */,
 				219D63331476148C0035E4AC /* FirstView.xib in Resources */,
 				910A23FB1476B39A002BF29B /* EmployeeCell.xib in Resources */,
+				9155EFDC1476FA4A003F87D4 /* Blur Mobile.m4v in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +252,7 @@
 				219D631F1475F84C0035E4AC /* Employee.m in Sources */,
 				219D6331147603A00035E4AC /* EmployeeFactory.m in Sources */,
 				910A23F91476B37F002BF29B /* EmployeeCell.m in Sources */,
+				9155EFDA1476F98A003F87D4 /* SoundEffect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

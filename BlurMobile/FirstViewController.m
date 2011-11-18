@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "Employee.h"
+#import "SoundEffect.h"
 
 @implementation FirstViewController
 @synthesize logView;
@@ -232,7 +233,10 @@
         Log(@"Found %d matching employees on this device", [results count]);
         
         NSString *resultMessage = [NSString stringWithFormat:@"Found %d employees",[results count]];
-                                   
+                      
+        if ([results count] > 0) {
+            [clickSound play];
+        }
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Found Matches" message:resultMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         [alert release];
@@ -354,6 +358,9 @@
     
     
     if (!IS_SERVER) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Blur Mobile" ofType:@"m4v"];
+        clickSound = [[SoundEffect soundEffectWithContentsOfFile:path] retain];
+        
         for (UIView *v in self.view.subviews) {
             if (v == startButton)
                 break;
