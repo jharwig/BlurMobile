@@ -10,6 +10,7 @@
 #import "Employee.h"
 
 @implementation FirstViewController
+@synthesize logView;
 
 #define SERVERNAME @"Chris D'Agostino's iPad2"
 
@@ -41,7 +42,7 @@
 
 - (void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID{
     
-    NSLog(@"Recieved Connection Request from peerName = %@ with peerID = %@", [self peerNameForPeerID:peerID], peerID);
+    Log(@"Recieved Connection Request from peerName = %@ with peerID = %@", [self peerNameForPeerID:peerID], peerID);
     
     /**
      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Request" message:[NSString stringWithFormat:@"The Client %@ is trying to connect.", peerName] delegate:self cancelButtonTitle:@"Decline" otherButtonTitles:@"Accept", nil];
@@ -59,10 +60,10 @@
     switch (state) {
             
         case GKPeerStateUnavailable:
-            NSLog(@"Unavailable");
+            Log(@"Unavailable");
             break;
         case GKPeerStateAvailable: 
-            NSLog(@"Available");
+            Log(@"Available");
             
             /**
              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Server Available!" message:[NSString stringWithFormat:@"The Server %@ is Available, Would you like to Connect?", peerName] 
@@ -78,15 +79,15 @@
             break;
             
         case GKPeerStateConnecting:
-            NSLog(@"Connecting");
+            Log(@"Connecting");
             break;
             
         case GKPeerStateConnected:
-            NSLog(@"Connected");
+            Log(@"Connected");
             break;
             
         case GKPeerStateDisconnected:
-            NSLog(@"Disconnected");
+            Log(@"Disconnected");
             [self.currentSession release];
             currentSession = nil;
             [startButton setHidden:NO];
@@ -130,19 +131,21 @@
     
     BOOL success = FALSE;
     
+    
+    
     @try {
         
         NSArray *e = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         
         for (Employee *employee in e) {
-            NSLog(@"Employee = %@", employee);
+            Log(@"Employee = %@", employee);
         }
         
         success = TRUE;
         
     }
     @catch (NSException *exception) {
-        NSLog(@"main: Caught %@: %@", [exception name], [exception reason]);
+        Log(@"main: Caught %@: %@", [exception name], [exception reason]);
     }
     
     if(!success) {
@@ -164,7 +167,7 @@
 #pragma mark -- Buttons
 -(IBAction) btnSearch:(id)sender {
     
-    NSLog(@"Sending Query");
+    Log(@"Sending Query");
     [queryString resignFirstResponder];
     NSData *data;
     NSString *str = [NSString stringWithString:queryString.text];
@@ -175,9 +178,9 @@
 
 -(IBAction) btnShard:(id) sender {
     
-    NSLog(@"Sharding Employees");
+    Log(@"Sharding Employees");
     
-    NSLog(@"There are %d employees to shard", [currentEmployees count]);
+    Log(@"There are %d employees to shard", [currentEmployees count]);
     
     
     NSData *employeeData = [NSKeyedArchiver archivedDataWithRootObject:currentEmployees];
@@ -196,14 +199,14 @@
                                                        sessionMode:GKSessionModeServer];
         
         currentSession.available = YES;
-        NSLog(@"Starting Server");
+        Log(@"Starting Server");
         
     }else {
         self.currentSession= [[GKSession alloc] initWithSessionID:@"BT" 
                                                       displayName:nil 
                                                       sessionMode:GKSessionModeClient];
         currentSession.available = YES;
-        NSLog(@"Starting Client");
+        Log(@"Starting Client");
     }
     currentSession.delegate = self;
     currentSession.disconnectTimeout = 20;
@@ -227,6 +230,7 @@
 {
     [queryString release];
     [currentSession release];
+    [logView release];
     [super dealloc];
 }
 
@@ -251,12 +255,17 @@
     
     [startButton setHidden:NO];
     [stopButton setHidden:YES];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(log:) name:LOGGER object:nil];
+    
     [super viewDidLoad];
 }
 
 
 - (void)viewDidUnload
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:LOGGER object:nil];
+    [self setLogView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -266,6 +275,11 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)log:(NSNotification *)n {   
+    NSLog(@">>> %@", [[n userInfo] objectForKey:@"message"]);
+    self.logView.text = [NSString stringWithFormat:@"%@\n%@", self.logView.text, [[n userInfo] objectForKey:@"message"]];
 }
 
 @end
