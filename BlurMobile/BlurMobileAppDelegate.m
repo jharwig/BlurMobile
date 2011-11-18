@@ -39,7 +39,11 @@
     [ef printAll];
     
     NSArray *controllers = [self.tabBarController viewControllers];
-    // iterate through the controllers and set the employees array
+    for (UIViewController *vc in controllers) {
+        if ([vc respondsToSelector:@selector(setCurrentEmployees:)]) {
+            [(id)vc setCurrentEmployees:currentEmployees];
+        }
+    }
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
