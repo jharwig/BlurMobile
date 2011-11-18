@@ -11,8 +11,6 @@
 
 @implementation BlurMobileAppDelegate
 
-#define SERVERNAME @"Chris D'Agostino's iPad2"
-
 @synthesize window=_window;
 
 @synthesize tabBarController=_tabBarController;
@@ -32,7 +30,7 @@
     
    // If the device is the iPad, load the master list of employees
     
-    if ([[[UIDevice currentDevice] name] hasPrefix:@"Chris D"] && [[[UIDevice currentDevice] model] hasPrefix:@"iPad"]) {
+    if (IS_SERVER) {
         NSLog(@"Loading employees");
          EmployeeFactory *ef = [EmployeeFactory instance];
         currentEmployees = [ef loadAllEmployees];

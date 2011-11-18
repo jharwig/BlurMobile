@@ -30,6 +30,7 @@
 @property(nonatomic, retain) UIButton *startButton;
 @property(nonatomic, retain) UIButton *stopButton;
 @property(nonatomic, retain) UILabel *deviceName, *deviceModel, *systemName, *systemVersion;
+@property (retain, nonatomic) IBOutlet UITextView *logView;
 
 
 -(IBAction) btnSearch:(id) sender;
