@@ -139,6 +139,8 @@
             Log(@"Employee = %@", employee);
         }
         
+        [(id)[UIApplication sharedApplication].delegate setCurrentEmployees:[e mutableCopy]];
+                
         success = TRUE;
         
     }

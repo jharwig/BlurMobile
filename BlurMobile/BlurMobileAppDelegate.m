@@ -33,18 +33,11 @@
     if (IS_SERVER) {
         NSLog(@"Loading employees");
          EmployeeFactory *ef = [EmployeeFactory instance];
-        currentEmployees = [ef loadAllEmployees];
+        self.currentEmployees = [ef loadAllEmployees];
         [ef printAll];
          
      }
-    
-    NSArray *controllers = [self.tabBarController viewControllers];
-    for (UIViewController *vc in controllers) {
-        if ([vc respondsToSelector:@selector(setCurrentEmployees:)]) {
-            [(id)vc setCurrentEmployees:currentEmployees];
-        }
-    }
-    
+        
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -87,6 +80,22 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+
+- (void)setCurrentEmployees:(NSMutableArray *)c {
+    if (currentEmployees != c) {
+        [currentEmployees release];
+        currentEmployees = [c retain];
+        
+        
+        NSArray *controllers = [self.tabBarController viewControllers];
+        for (UIViewController *vc in controllers) {
+            if ([vc respondsToSelector:@selector(setCurrentEmployees:)]) {
+                [(id)vc setCurrentEmployees:currentEmployees];
+            }
+        }
+    }
 }
 
 - (void)dealloc
