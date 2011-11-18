@@ -117,7 +117,7 @@
         Log(@"Distributing %i employees per device", employeesPerDevice);
                 
         int i = 0;
-        NSMutableArray *leftovers;
+        NSMutableArray *leftovers = [NSMutableArray array];
         for (id peer in peers) {
             NSError *error;
             NSRange range = NSMakeRange(i, employeesPerDevice);
