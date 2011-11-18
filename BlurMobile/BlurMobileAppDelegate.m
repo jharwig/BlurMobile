@@ -28,6 +28,8 @@
     NSLog(@"Device SystemName is %@", [[UIDevice currentDevice] systemName]);
     NSLog(@"Device SystemVersion is %@", [[UIDevice currentDevice] systemVersion]);
     
+   [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
    // If the device is the iPad, load the master list of employees
     
     if (IS_SERVER) {
