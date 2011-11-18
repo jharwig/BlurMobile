@@ -76,7 +76,6 @@
 		219D62DF1475F31B0035E4AC = {
 			isa = PBXGroup;
 			children = (
-				219D633C14761BA50035E4AC /* GameKit.framework */,
 				219D62F41475F31C0035E4AC /* BlurMobile */,
 				219D62ED1475F31C0035E4AC /* Frameworks */,
 				219D62EB1475F31C0035E4AC /* Products */,
@@ -94,6 +93,7 @@
 		219D62ED1475F31C0035E4AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				219D633C14761BA50035E4AC /* GameKit.framework */,
 				219D62EE1475F31C0035E4AC /* UIKit.framework */,
 				219D62F01475F31C0035E4AC /* Foundation.framework */,
 				219D62F21475F31C0035E4AC /* CoreGraphics.framework */,
